@@ -52,7 +52,7 @@ function StartingCard() {
         </CardContent>
       </Card>
       <Link
-        to="https://github.com/rednotsus/imposter"
+        to="https://github.com/jiayangc1/imposter"
         target="_blank"
         rel="noopener noreferrer"
         className="absolute bottom-3 right-3"

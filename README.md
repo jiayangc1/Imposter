@@ -4,7 +4,7 @@
 <br />
 <div align="center">
 	<a href="https://imposter.ch3n.cc">
-		<img src="https://hc-cdn.hel1.your-objectstorage.com/s/v3/ddba761c045fb7ba_untitled__1600_x_900_px___400_x_100_px_.png" alt="Imposter Logo" style='border-radius: 15px'>
+		<img src="https://user-cdn.hackclub-assets.com/019f4192-3858-7cff-84a5-50bc23cca77a/image.png" alt="Imposter Logo" style='border-radius: 15px'>
 	</a>
 
 <h3 align="center">Imposter</h3>
@@ -15,9 +15,9 @@
 	<br />
 	<a href="https://imposter.ch3n.cc">View Demo</a>
 	·
-	<a href="https://github.com/rednotsus/imposter/issues">Report Bug</a>
+	<a href="https://github.com/jiayangc1/imposter/issues">Report Bug</a>
 	·
-	<a href="https://github.com/rednotsus/imposter/issues">Request Feature</a>
+	<a href="https://github.com/jiayangc1/imposter/issues">Request Feature</a>
 </p>
 
 </div>
@@ -55,7 +55,7 @@
 Imposter is a lightweight, client-side game UI for running an Imposter-style experience. It uses a playlist/word list and simple screens to coordinate rounds and reveal roles. The app is built with modern frontend tooling for fast local development and easy deployment.
 
 Demo preview:
-[![Demo Preview](https://hc-cdn.hel1.your-objectstorage.com/s/v3/df1e304df063bba8_image.png)](https://imposter.ch3n.cc)
+[![Demo Preview](https://cdn.hackclub.com/019f4193-16ab-76ae-b3fc-9ead1819bbf6/image.png)](https://imposter.ch3n.cc)
 
 Live demo: https://imposter.ch3n.cc  
 Repository: https://github.com/rednotsus/imposter
@@ -130,7 +130,7 @@ For per-route or per-room meta handling, consider adding dynamic head/meta tags 
 - [ ] Improved UI/UX and animations
 - [ ] Admin panel for playlist/word management
 
-See the [open issues](https://github.com/rednotsus/imposter/issues) for a full list of proposed features and known issues.
+See the [open issues](https://github.com/jiayangc1/imposter/issues) for a full list of proposed features and known issues.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

@@ -58,7 +58,7 @@ Demo preview:
 [![Demo Preview](https://cdn.hackclub.com/019f4193-16ab-76ae-b3fc-9ead1819bbf6/image.png)](https://imposter.ch3n.cc)
 
 Live demo: https://imposter.ch3n.cc  
-Repository: https://github.com/rednotsus/imposter
+Repository: https://github.com/jiayangc1/imposter
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -87,7 +87,7 @@ To get a local copy up and running, follow these steps.
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/rednotsus/imposter.git
+   git clone https://github.com/jiayangc1/imposter.git
    cd imposter
    ```
 2. Install dependencies
@@ -152,8 +152,8 @@ If you have suggestions, open an issue with the "enhancement" label.
 
 ### Top contributors:
 
-<a href="https://github.com/rednotsus/imposter/graphs/contributors">
-	<img src="https://contrib.rocks/image?repo=rednotsus/imposter" alt="contrib.rocks image" />
+<a href="https://github.com/jiayangc1/imposter/graphs/contributors">
+	<img src="https://contrib.rocks/image?repo=jiayangc1/imposter" alt="contrib.rocks image" />
 </a>
 
 <!-- LICENSE -->
@@ -168,7 +168,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-- Project: https://github.com/rednotsus/imposter
+- Project: https://github.com/jiayangc1/imposter
 - Live demo: https://imposter.ch3n.cc
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>

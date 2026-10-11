@@ -20,6 +20,7 @@ import { CategorySelect } from "./parts/CategorySelect";
 import PlayerScreen from "./parts/PlayerScreen";
 import { useCustomCategories } from "@/hooks/useCustomCategories";
 import { useHaptic } from "@/hooks/useHaptic";
+import { randomInt, shuffle } from "@/lib/utils";
 
 type WordsData = {
   categories: { name: string; icon?: string; words: string[] }[];
@@ -42,7 +43,41 @@ const STORAGE_KEYS = {
   players: "imposter-players",
   imposters: "imposter-imposters",
   categories: "imposter-categories",
+  seen: "imposter-seen",
 };
+
+type Seen = {
+  categories: string[];
+  words: Record<string, string[]>;
+};
+
+function loadSeen(): Seen {
+  try {
+    const parsed = JSON.parse(localStorage.getItem(STORAGE_KEYS.seen) ?? "");
+    return {
+      categories: Array.isArray(parsed?.categories) ? parsed.categories : [],
+      words:
+        parsed?.words && typeof parsed.words === "object" ? parsed.words : {},
+    };
+  } catch {
+    return { categories: [], words: {} };
+  }
+}
+
+// Picks an option that hasn't come up yet this cycle. Once everything has been
+// seen the cycle restarts, without immediately repeating the last pick.
+function pickUnseen<T>(options: T[], seen: string[], key: (option: T) => string) {
+  let pool = options.filter((option) => !seen.includes(key(option)));
+  let nextSeen = seen;
+  if (!pool.length) {
+    const last = seen[seen.length - 1];
+    pool = options.filter((option) => key(option) !== last);
+    if (!pool.length) pool = options;
+    nextSeen = [];
+  }
+  const picked = pool[randomInt(pool.length)];
+  return { picked, seen: [...nextSeen, key(picked)] };
+}
 
 function Play() {
   const { trigger: triggerHaptic } = useHaptic();
@@ -160,13 +195,29 @@ function Play() {
 
     if (!allFiltered.length) return;
 
-    const category = allFiltered[Math.floor(Math.random() * allFiltered.length)];
-    const secretWord =
-      category.words[Math.floor(Math.random() * category.words.length)];
+    const playable = allFiltered.filter((c) => c.words.length > 0);
+    if (!playable.length) return;
 
-    const shuffledIds = players
-      .map((p) => p.id)
-      .sort(() => Math.random() - 0.5);
+    const seen = loadSeen();
+    const { picked: category, seen: seenCategories } = pickUnseen(
+      playable,
+      seen.categories,
+      (c) => c.name
+    );
+    const { picked: secretWord, seen: seenWords } = pickUnseen(
+      category.words,
+      seen.words[category.name] ?? [],
+      (word) => word
+    );
+    localStorage.setItem(
+      STORAGE_KEYS.seen,
+      JSON.stringify({
+        categories: seenCategories,
+        words: { ...seen.words, [category.name]: seenWords },
+      })
+    );
+
+    const shuffledIds = shuffle(players.map((p) => p.id));
     const imposterIds = new Set(shuffledIds.slice(0, imposters));
 
     const assignments: RoundPlayer[] = players.map((player) => ({
